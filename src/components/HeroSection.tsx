@@ -1,5 +1,6 @@
-import { ArrowRight, Shield, Lock } from 'lucide-react';
+import { ArrowRight, Lock, Cpu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 import heroImage from '@/assets/hero-auction-floor.jpg';
 
 export const HeroSection = () => {
@@ -35,23 +36,27 @@ export const HeroSection = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button 
-              size="lg" 
-              variant="auction"
-              className="text-lg px-8 py-6"
-            >
-              Enter Auction Floor
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Button>
+            <Link to="/auctions">
+              <Button 
+                size="lg" 
+                variant="auction"
+                className="text-lg px-8 py-6"
+              >
+                Enter Auction Floor
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+            </Link>
             
-            <Button 
-              size="lg" 
-              variant="outline"
-              className="border-glow-secondary/50 hover:bg-glow-secondary/10 text-lg px-8 py-6"
-            >
-              <Shield className="w-5 h-5 mr-2" />
-              Learn About FHE
-            </Button>
+            <Link to="/about-fhe">
+              <Button 
+                size="lg" 
+                variant="outline"
+                className="border-glow-secondary/50 hover:bg-glow-secondary/10 text-lg px-8 py-6"
+              >
+                <Cpu className="w-5 h-5 mr-2" />
+                Learn About FHE
+              </Button>
+            </Link>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
@@ -64,7 +69,7 @@ export const HeroSection = () => {
             </div>
             
             <div className="encrypted-card p-6 text-center space-y-3">
-              <Shield className="w-8 h-8 mx-auto text-glow-secondary" />
+              <Cpu className="w-8 h-8 mx-auto text-glow-secondary" />
               <h3 className="font-semibold text-foreground">Zero Manipulation</h3>
               <p className="text-sm text-muted-foreground">
                 FHE technology prevents bid manipulation

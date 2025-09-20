@@ -1,4 +1,4 @@
-import { Lock, Users, Zap, Shield, Eye, TrendingUp } from 'lucide-react';
+import { Lock, Users, Zap, Eye, TrendingUp, Cpu } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 const steps = [
@@ -30,7 +30,7 @@ const steps = [
 
 const features = [
   {
-    icon: Shield,
+    icon: Cpu,
     title: 'FHE Protection',
     description: 'Fully Homomorphic Encryption ensures complete privacy of bid amounts throughout the auction process.'
   },

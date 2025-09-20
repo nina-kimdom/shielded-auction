@@ -1,17 +1,18 @@
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
-import { Shield, Lock, Eye, Zap, Users, CheckCircle } from 'lucide-react';
+import { Lock, Eye, Zap, Users, CheckCircle, Cpu } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Link } from 'react-router-dom';
 
 const AboutFHE = () => {
   const features = [
     {
-      icon: Shield,
+      icon: Lock,
       title: "Complete Privacy",
       description: "Fully Homomorphic Encryption ensures your bid data remains completely private while still allowing computations."
     },
     {
-      icon: Lock,
+      icon: Cpu,
       title: "Cryptographic Security",
       description: "Advanced mathematical proofs guarantee that encrypted data cannot be decrypted without the proper keys."
     },
@@ -162,12 +163,12 @@ const AboutFHE = () => {
               Join the revolution in fair liquidity access powered by cutting-edge cryptography.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="/auctions" className="btn-primary px-8 py-3 rounded-lg font-semibold transition-all hover:scale-105">
+              <Link to="/auctions" className="btn-primary px-8 py-3 rounded-lg font-semibold transition-all hover:scale-105">
                 View Live Auctions
-              </a>
-              <a href="/how-it-works" className="border border-primary text-primary px-8 py-3 rounded-lg font-semibold hover:bg-primary hover:text-primary-foreground transition-colors">
+              </Link>
+              <Link to="/how-it-works" className="border border-primary text-primary px-8 py-3 rounded-lg font-semibold hover:bg-primary hover:text-primary-foreground transition-colors">
                 Learn the Process
-              </a>
+              </Link>
             </div>
           </section>
         </div>
