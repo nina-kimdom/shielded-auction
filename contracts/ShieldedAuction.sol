@@ -161,10 +161,10 @@ contract ShieldedAuction is SepoliaConfig {
         require(amount > 0, "Amount must be positive");
         require(address(this).balance >= amount, "Insufficient contract balance");
         
-        // In a real implementation, this would check encrypted balances
-        // For now, we'll do a simple transfer
+        // Use contract call instead of direct transfer for security
+        (bool success, ) = payable(msg.sender).call{value: amount}("");
+        require(success, "Transfer failed");
         
-        payable(msg.sender).transfer(amount);
         emit FundsWithdrawn(msg.sender, uint32(amount));
     }
     
@@ -233,6 +233,9 @@ contract ShieldedAuction is SepoliaConfig {
     // Function to withdraw contract balance (owner only)
     function withdrawContractBalance() public {
         require(msg.sender == owner, "Only owner can withdraw contract balance");
-        payable(owner).transfer(address(this).balance);
+        
+        // Use contract call instead of direct transfer for security
+        (bool success, ) = payable(owner).call{value: address(this).balance}("");
+        require(success, "Transfer failed");
     }
 }
